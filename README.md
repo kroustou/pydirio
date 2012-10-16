@@ -1,4 +1,5 @@
 pydirio
 =======
 
-watch for cahnges in a directory subtree
+watch for changes in a directory subtree
+and run the lessc.
