@@ -5,12 +5,12 @@ import os
 import sys
 import argparse
 
-command = "lessc screen.less screen.css"
 parser = argparse.ArgumentParser(description='Gimme a directory')
-parser.add_argument('dir', metavar='directory', type=str, help='a directory to watch')
+parser.add_argument('dir', default=os.getcwd(), nargs='?', help='a directory to watch')
 
 args = parser.parse_args()
-directory = args.dir
+directory = os.path.abspath(args.dir)
+command = "lessc %s/screen.less %s/screen.css" % (directory, directory)
 if os.path.exists(directory):
     last = os.stat(directory)[-1]
     while True:
